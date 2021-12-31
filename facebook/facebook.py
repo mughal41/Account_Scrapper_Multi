@@ -30,7 +30,7 @@ def fb(phone_number):
     options.add_experimental_option('excludeSwitches', ['enable-logging'])
     loc = os.getcwd()
     driver = webdriver.Chrome(".\chromedriver.exe", options=options)
-    # with webdriver.Chrome("E:\Data Miner\PhoneToAccountScraper\Account Scrapper_Multi\facebook\chromedriver.exe", options=options) as driver:
+    # with webdriver.Chrome(".\chromedriver.exe", options=options) as driver:
     driver.get("https://www.facebook.com/login/identify")
     time.sleep(1)
     try:

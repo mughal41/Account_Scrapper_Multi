@@ -40,22 +40,6 @@ def get_arguments():
         else:
             return options
 
-# class TestOne(unittest.TestCase):
-#     def setUp(self):
-#         self.driver = webdriver.Remote(
-#             command_executor="http://localhost:4444/wd/hub",
-#             desired_capabilities={
-#                 "browserName": "chrome",
-#             })
-#         self.driver.implicitly_wait(30)
-#         self.driver.maximize_window()
-
-#     def tearDown(self):
-#         self.driver.quit()
-
-
-
-    
 def ignore_logs():
     logging.getLogger("undetected_chromedriver").setLevel(logging.CRITICAL)
 
@@ -215,25 +199,25 @@ def main(phone_number):
         p1 = multiprocessing.Process(target= location_risk_number, args=[phone_number])
         p2 = multiprocessing.Process(target= risk_level,args=[phone_number] )
         p3 = multiprocessing.Process(target= facebook_phone,args=[phone_number] )
-        # p4 = multiprocessing.Process(target= instagram_phone,args=[phone_number])
-        #p5 = multiprocessing.Process(target= google_phone,args=[phone_number])
-        #p6 = multiprocessing.Process(target= linkedin_phone,args=[phone_number])
+        p4 = multiprocessing.Process(target= instagram_phone,args=[phone_number])
+        p5 = multiprocessing.Process(target= google_phone,args=[phone_number])
+        p6 = multiprocessing.Process(target= linkedin_phone,args=[phone_number])
         p1.start()
         p2.start()
         p3.start() 
-        # p4.start()
-        #p5.start() 
-        #p6.start()
+        p4.start()
+        p5.start() 
+        p6.start()
         p1.join()
         p2.join()
         p3.join() 
-        # p4.join()
-#         #p5.join() 
-#         #p6.join()
+        p4.join()
+        p5.join() 
+        p6.join()
 if __name__ == '__main__':
     options = get_arguments()
     
-    #ignore_logs()
+    ignore_logs()
     os.system("cls")
     print(colored.green("Owner Name/Number Information:\n"))
 

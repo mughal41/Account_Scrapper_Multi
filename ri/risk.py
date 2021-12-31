@@ -18,8 +18,9 @@ def r_level(phone_number):
 	options.add_argument("user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36")
 	options.add_experimental_option('excludeSwitches', ['enable-logging'])
 	loc = os.getcwd()
-	driver = webdriver.Chrome("E:\Data Miner\PhoneToAccountScraper\Account Scrapper_Multi\instagram\chromedriver.exe", options=options)
-	#with webdriver.Chrome("E:\Data Miner\PhoneToAccountScraper\Account Scrapper_Multi\ri\chromedriver.exe",options=options) as driver:
+	
+	driver = webdriver.Chrome(".\chromedriver.exe", options=options)
+	#with webdriver.Chrome(".\chromedriver.exe",options=options) as driver:
 	driver.get("https://spamcalls.net/en")
 	
 	WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div/div/div[1]/form/div/input"))).send_keys(phone_number)
